@@ -59,6 +59,7 @@ function Home({ data }: any) {
           }>
         ) => setViewport(viewport)}
         mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
+        mapStyle="mapbox://styles/kristjaningi/ckmczevhelcf617p6lxx6yga2"
       >
         {data.map((flight) => {
           // console.log(flight);
