@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import Head from 'next/head';
 import ReactMapGL, { MapContext } from 'react-map-gl';
+import Sidebar from '../components/Sidebar';
 
-function CustomMarker(props) {
+function AircraftMarker(props) {
   const context = useContext(MapContext);
 
   const { longitude, latitude, flight } = props;
 
-  console.log(flight);
+  // console.log(flight);
 
   const [x, y] = context.viewport?.project([longitude, latitude]);
 
@@ -46,6 +47,8 @@ function Home({ data }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Sidebar flights={data} />
+
       <ReactMapGL
         {...viewport}
         {...settings}
@@ -65,7 +68,7 @@ function Home({ data }: any) {
           // console.log(flight);
 
           return (
-            <CustomMarker
+            <AircraftMarker
               key={flight.faFlightID}
               longitude={flight.longitude}
               latitude={flight.latitude}
