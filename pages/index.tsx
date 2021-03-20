@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import Head from 'next/head';
 import ReactMapGL, { MapContext } from 'react-map-gl';
 import Sidebar from '../components/Sidebar';
+import AircraftIcon from '../assets/AircraftIcon';
 
 function AircraftMarker(props) {
   const context = useContext(MapContext);
@@ -14,7 +15,9 @@ function AircraftMarker(props) {
 
   return (
     <div className="flex flex-col justify-center" style={{ position: 'absolute', left: x, top: y }}>
-      <p className="text-red-400">{flight.ident}</p>
+      <AircraftIcon color="#c6984b" size={40} direction={flight.heading} />
+
+      <p className="text-white text-sm font-bold">{flight.ident}</p>
     </div>
   );
 }
