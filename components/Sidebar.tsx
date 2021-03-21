@@ -1,8 +1,29 @@
 import { IFlightData } from '../types';
 import { formatAirportCode } from '../helpers';
+import useSWR from 'swr';
 
 interface Props {
   flights: IFlightData[];
+}
+
+async function fetcher(...args: any) {
+  const [url] = args;
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  return data;
+}
+
+function getAirplaneName(faFlightID: string, ident: string) {
+  const { data, error } = useSWR(`/api/airplaneName?faFlightID=${faFlightID}`, fetcher);
+
+  if (error) return ident;
+  if (!data) return 'Loading...';
+
+  // console.log(data.result);
+
+  return data.result;
 }
 
 export default function Sidebar({ flights }: Props) {
@@ -18,10 +39,10 @@ export default function Sidebar({ flights }: Props) {
             <div key={flight.faFlightID} className="p-3 border-b-2">
               <div className="flex">
                 <img className="" src="/logo-small.png" width="35" />
-                <div className="font-semibold text-lg ml-3">{flight.ident}</div>
+                <div className="font-semibold text-lg ml-3">{getAirplaneName(flight.faFlightID, flight.ident)}</div>
               </div>
               <div className="flex flex-row justify-between items-center mt-3">
-                <div className="border-2">
+                <div className="">
                   <div className="text-xs text-gray-500">Origin</div>
                   <div className="">{formatAirportCode(flight.origin)}</div>
                 </div>
@@ -41,8 +62,8 @@ export default function Sidebar({ flights }: Props) {
                   <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"></path>
                 </svg>
 
-                <div className="border-2">
-                  <div className="text-xs text-gray-500">Destination</div>
+                <div className="">
+                  <div className="text-xs text-gray-500">Dest.</div>
                   <div className="">{formatAirportCode(flight.destination)}</div>
                 </div>
               </div>
