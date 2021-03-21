@@ -71,8 +71,8 @@ export default function Sidebar({ flights }: Props) {
           ))
         ) : (
           <div className="flex flex-col justify-center items-center h-full flex-grow border-2">
-            <img className="p-9" src="/icelandair-aircraft.svg" />
-            <div className="text-bold text-xl font-mono">No Flights</div>
+            <img className="px-10" src="/icelandair-aircraft.svg" />
+            <div className="text-bold text-xl font-mono mt-4">No Flights</div>
           </div>
         )}
       </div>
