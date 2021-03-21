@@ -106,7 +106,9 @@ function Home({ data }: any) {
             );
           })}
 
+        {/* @ts-ignore */}
         <Source id="my-data" type="geojson" data={geojson}>
+          {/* @ts-ignore */}
           <Layer {...layerStyle} />
         </Source>
       </ReactMapGL>
