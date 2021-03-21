@@ -13,8 +13,7 @@ function AircraftMarker(props: any) {
 
   return (
     <div className="flex flex-col justify-center" style={{ position: 'absolute', left: x, top: y }}>
-      <AircraftIcon color="#c6984b" size={40} direction={flight.heading} />
-
+      <AircraftIcon color="#ffb600" size={40} direction={flight.heading} />
       <p className="text-white text-sm font-bold">{flight.ident}</p>
     </div>
   );
