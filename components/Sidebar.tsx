@@ -21,7 +21,7 @@ async function fetcher(...args: any) {
 }
 
 export default function Sidebar({ flights }: Props) {
-  const [selectedFlight, setSelectedFlight] = useState({});
+  const [selectedFlight, setSelectedFlight]: any = useState({});
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
