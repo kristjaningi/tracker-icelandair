@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import useSWR from 'swr';
-import Skeleton from 'react-loading-skeleton';
 import fromUnixTime from 'date-fns/fromUnixTime';
 import format from 'date-fns/format';
 import Modal from 'react-modal';
