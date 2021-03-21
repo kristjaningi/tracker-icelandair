@@ -9,6 +9,8 @@ function AircraftMarker(props: any) {
 
   const { longitude, latitude, flight } = props;
 
+  // console.log(flight);
+
   const [x, y]: any = context.viewport?.project([longitude, latitude]);
 
   return (
@@ -47,7 +49,7 @@ function Home({ data }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Sidebar flights={data} />
+      <Sidebar flights={data.aircraft} />
 
       <ReactMapGL
         {...viewport}
@@ -64,16 +66,19 @@ function Home({ data }: any) {
         mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
         mapStyle="mapbox://styles/kristjaningi/ckmczevhelcf617p6lxx6yga2"
       >
-        {data.map((flight: { faFlightID: string; longitude: number; latitude: number }) => {
-          return (
-            <AircraftMarker
-              key={flight.faFlightID}
-              longitude={flight.longitude}
-              latitude={flight.latitude}
-              flight={flight}
-            />
-          );
-        })}
+        {data.aircraft &&
+          data.aircraft.map((flight: { faFlightID: string; longitude: number; latitude: number }) => {
+            // console.log(flight);
+
+            return (
+              <AircraftMarker
+                key={flight.faFlightID}
+                longitude={flight.longitude}
+                latitude={flight.latitude}
+                flight={flight}
+              />
+            );
+          })}
       </ReactMapGL>
     </div>
   );
@@ -89,16 +94,20 @@ export async function getServerSideProps() {
       },
     }
   );
+  console.log('FETCHING DATA');
 
   const data = await res.json();
 
-  if (!data) {
-    console.log('NO DATA');
-    console.log('LOADING');
+  if (data.error) {
+    return {
+      props: {
+        data: [],
+      },
+    };
   }
 
   return {
-    props: { data: data.SearchBirdseyeInFlightResult.aircraft },
+    props: { data: data?.SearchBirdseyeInFlightResult },
   };
 }
 
