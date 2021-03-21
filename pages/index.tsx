@@ -9,8 +9,6 @@ function AircraftMarker(props: any) {
 
   const { longitude, latitude, flight } = props;
 
-  // console.log(flight);
-
   const [x, y]: any = context.viewport?.project([longitude, latitude]);
 
   return (
@@ -68,8 +66,6 @@ function Home({ data }: any) {
         mapStyle="mapbox://styles/kristjaningi/ckmczevhelcf617p6lxx6yga2"
       >
         {data.map((flight: { faFlightID: string; longitude: number; latitude: number }) => {
-          // console.log(flight);
-
           return (
             <AircraftMarker
               key={flight.faFlightID}
@@ -94,13 +90,8 @@ export async function getServerSideProps() {
       },
     }
   );
-  console.log('FETCHING DATA');
 
   const data = await res.json();
-
-  if (!data) {
-    console.log('NO DATA');
-  }
 
   return {
     props: { data: data.SearchBirdseyeInFlightResult.aircraft },
