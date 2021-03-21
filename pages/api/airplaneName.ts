@@ -16,11 +16,22 @@ export default async function getAirplaneName(req: any, res: any) {
 
   const tailNumber = data.AirlineFlightInfoResult.tailnumber;
 
-  // console.log(tailNumber);
+  console.log(tailNumber);
 
   const result = aircrafts.filter((chain) => {
     return chain.registration === tailNumber;
   })[0].nickname;
+
+  console.log(result);
+
+  if (result.length === 0) {
+    console.log('no result');
+    return res.status(200).json({ result: 'Icelandair' });
+  }
+
+  // const result = aircrafts.filter((chain) => {
+  //   return chain.registration === tailNumber;
+  // })[0].nickname;
 
   // console.log(result);
 

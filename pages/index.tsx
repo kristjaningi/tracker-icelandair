@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Head from 'next/head';
-import ReactMapGL, { MapContext } from 'react-map-gl';
+import ReactMapGL, { Layer, MapContext, Source } from 'react-map-gl';
 import Sidebar from '../components/Sidebar';
 import AircraftIcon from '../assets/AircraftIcon';
 
@@ -8,8 +8,6 @@ function AircraftMarker(props: any) {
   const context = useContext(MapContext);
 
   const { longitude, latitude, flight } = props;
-
-  // console.log(flight);
 
   const [x, y]: any = context.viewport?.project([longitude, latitude]);
 
@@ -40,6 +38,34 @@ function Home({ data }: any) {
     maxZoom: 20,
     minPitch: 0,
     maxPitch: 85,
+  };
+
+  const geojson = {
+    type: 'FeatureCollection',
+    features: [
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [-22.6303749, 63.9814892] } },
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [-0.2416797, 51.5287718] } },
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [4.7241943, 52.3154298] } },
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [12.5237848, 55.6713442] } },
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [-71.0117489, 42.3656171] } },
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [-74.1197631, 40.6976637] } },
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [-79.5181399, 43.7184038] } },
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [2.0787284, 41.3948976] } },
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [13.2846508, 52.5069704] } },
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [-14.4039127, 65.2616276] } },
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [-18.2054355, 65.6693289] } },
+    ],
+  };
+
+  const layerStyle = {
+    id: 'point',
+    type: 'circle',
+    paint: {
+      'circle-radius': 5,
+      'circle-color': '#ffb600',
+      'circle-stroke-color': 'white',
+      'circle-stroke-width': 1,
+    },
   };
 
   return (
@@ -79,6 +105,10 @@ function Home({ data }: any) {
               />
             );
           })}
+
+        <Source id="my-data" type="geojson" data={geojson}>
+          <Layer {...layerStyle} />
+        </Source>
       </ReactMapGL>
     </div>
   );
@@ -94,7 +124,8 @@ export async function getServerSideProps() {
       },
     }
   );
-  console.log('FETCHING DATA');
+
+  // console.log('FETCHING DATA');
 
   const data = await res.json();
 
