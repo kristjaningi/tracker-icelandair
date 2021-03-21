@@ -92,6 +92,11 @@ export async function getServerSideProps() {
 
   const data = await res.json();
 
+  if (!data) {
+    console.log('NO DATA');
+    console.log('LOADING');
+  }
+
   return {
     props: { data: data.SearchBirdseyeInFlightResult.aircraft },
   };
