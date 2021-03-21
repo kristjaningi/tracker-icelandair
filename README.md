@@ -1,6 +1,7 @@
 # Icelandair Tracker
 
 Simple overview of live Icelandair aircrafts and their current position.
+
 Flight data is retrieved from [FlightAware API.](https://flightaware.com/commercial/aeroapi/)
 
 ![](example2.png)
