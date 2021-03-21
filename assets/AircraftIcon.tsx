@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 
 export interface IAircraftIconProps {
   color?: string;
@@ -15,9 +14,6 @@ const AircraftIcon: React.FunctionComponent<IAircraftIconProps> = ({ className, 
       viewBox="0 0 19 19"
       height={size}
       width={size}
-      className={classNames({
-        [className]: className,
-      })}
       style={{ transform: `rotate(${direction || 0}deg)` }}
     >
       <path

@@ -4,14 +4,14 @@ import ReactMapGL, { MapContext } from 'react-map-gl';
 import Sidebar from '../components/Sidebar';
 import AircraftIcon from '../assets/AircraftIcon';
 
-function AircraftMarker(props) {
+function AircraftMarker(props: any) {
   const context = useContext(MapContext);
 
   const { longitude, latitude, flight } = props;
 
   // console.log(flight);
 
-  const [x, y] = context.viewport?.project([longitude, latitude]);
+  const [x, y]: any = context.viewport?.project([longitude, latitude]);
 
   return (
     <div className="flex flex-col justify-center" style={{ position: 'absolute', left: x, top: y }}>
@@ -67,7 +67,7 @@ function Home({ data }: any) {
         mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
         mapStyle="mapbox://styles/kristjaningi/ckmczevhelcf617p6lxx6yga2"
       >
-        {data.map((flight) => {
+        {data.map((flight: { faFlightID: string; longitude: number; latitude: number }) => {
           // console.log(flight);
 
           return (
@@ -94,6 +94,8 @@ export async function getServerSideProps() {
       },
     }
   );
+  console.log('FETCHING DATA');
+
   const data = await res.json();
 
   if (!data) {

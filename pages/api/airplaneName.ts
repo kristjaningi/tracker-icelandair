@@ -1,6 +1,6 @@
 import aircrafts from '../../data/fleet.json';
 
-export default async function getAirplaneName(req, res) {
+export default async function getAirplaneName(req: any, res: any) {
   const faFlightID = req.query.faFlightID;
 
   const response = await fetch(
