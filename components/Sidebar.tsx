@@ -55,6 +55,8 @@ export default function Sidebar({ flights }: Props) {
           </div>
         )}
       </div>
+
+      <div className="flex justify-center m-3 text-sm font-mono">made by @kristjaningi</div>
     </div>
   );
 }
