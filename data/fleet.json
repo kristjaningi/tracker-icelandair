@@ -1,94 +1,25 @@
 [
-  {
-    "nickname": "Jökulsárlón",
-    "registration": "TFICE"
-  },
-  {
-    "nickname": "Mývatn",
-    "registration": "TFICN"
-  },
-  {
-    "nickname": "Helgafell",
-    "registration": "TFFIT"
-  },
-  {
-    "nickname": "Hlöðufell",
-    "registration": "TFISO"
-  },
-  {
-    "nickname": "Gullborg",
-    "registration": "TFISW"
-  },
-  {
-    "nickname": "Vatnajökull",
-    "registration": "TFFIR"
-  },
-  {
-    "nickname": "Búlandstindur",
-    "registration": "TFICO"
-  },
-  {
-    "nickname": "Landmannalaugar",
-    "registration": "TFICP"
-  },
-  {
-    "nickname": "Dyrhólaey",
-    "registration": "TFICU"
-  },
-  {
-    "nickname": "Látrabjarg",
-    "registration": "TFICY"
-  },
-  {
-    "nickname": "Hvítserkur",
-    "registration": "TFICA"
-  },
-  {
-    "nickname": "Langjökull",
-    "registration": "TFICB"
-  },
-  {
-    "nickname": "Kirkjufell",
-    "registration": "TFICC"
-  },
-  {
-    "nickname": "Herdubreid",
-    "registration": "TFFIA"
-  },
-  {
-    "nickname": "Magni",
-    "registration": "TFFIC"
-  },
-  {
-    "nickname": "Bláfjall",
-    "registration": "TFFIG"
-  },
-  {
-    "nickname": "Eldborg",
-    "registration": "TFFIN"
-  },
-  {
-    "nickname": "Icelandair Cargo",
-    "registration": "TFFIG"
-  },
-  {
-    "nickname": "Icelandair Cargo",
-    "registration": "TFFIH"
-  },
-  {
-    "nickname": "Air Iceland Connect",
-    "registration": "TFFXG"
-  },
-  {
-    "nickname": "Air Iceland Connect",
-    "registration": "TFFXH"
-  },
-  {
-    "nickname": "Air Iceland Connect",
-    "registration": "TFFXI"
-  },
-  {
-    "nickname": "Air Iceland Connect",
-    "registration": "TFFXA"
-  }
+  { "nickname": "Jökulsárlón", "registration": "TF-ICE" },
+  { "nickname": "Mývatn", "registration": "TF-ICN" },
+  { "nickname": "Helgafell", "registration": "TF-FIT" },
+  { "nickname": "Hlöðufell", "registration": "TF-ISO" },
+  { "nickname": "Gullborg", "registration": "TF-ISW" },
+  { "nickname": "Vatnajökull", "registration": "TF-FIR" },
+  { "nickname": "Búlandstindur", "registration": "TF-ICO" },
+  { "nickname": "Landmannalaugar", "registration": "TF-ICP" },
+  { "nickname": "Dyrhólaey", "registration": "TF-ICU" },
+  { "nickname": "Látrabjarg", "registration": "TF-ICY" },
+  { "nickname": "Hvítserkur", "registration": "TF-ICA" },
+  { "nickname": "Langjökull", "registration": "TF-ICB" },
+  { "nickname": "Kirkjufell", "registration": "TF-ICC" },
+  { "nickname": "Herdubreid", "registration": "TF-FIA" },
+  { "nickname": "Magni", "registration": "TF-FIC" },
+  { "nickname": "Bláfjall", "registration": "TF-FIG" },
+  { "nickname": "Eldborg", "registration": "TF-FIN" },
+  { "nickname": "Icelandair Cargo", "registration": "TF-FIG" },
+  { "nickname": "Icelandair Cargo", "registration": "TF-FIH" },
+  { "nickname": "Air Iceland Connect", "registration": "TF-FXG" },
+  { "nickname": "Air Iceland Connect", "registration": "TF-FXH" },
+  { "nickname": "Air Iceland Connect", "registration": "TF-FXI" },
+  { "nickname": "Air Iceland Connect", "registration": "TF-FXA" }
 ]
